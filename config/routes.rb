@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
    #logout route
    delete '/logout' => 'sessions#destroy'# Important that its delete so that the user cant view it in the url bar 
+
+   #omniauth callback route
+  get "/auth/:provider/callback" => 'sessions#google'  # Provider is dynamic -- if you want to use multiple omniauths
   
   resources :recipes do
     resources :comments
