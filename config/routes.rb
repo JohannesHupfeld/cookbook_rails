@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #login route
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+
+   #logout route
+   delete '/logout' => 'sessions#destroy'# Important that its delete so that the user cant view it in the url bar 
   
   resources :recipes do
     resources :comments
