@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   belongs_to :category
   has_many :comments
   has_many :users, through: :comments # Gives us the writer method for the plural 
-  validates :name, :instruction, :ingredient, presence: true
+  validates :username, :instructions, :ingredients, presence: true
  
   scope :alpha, -> { order(:name) }
 
