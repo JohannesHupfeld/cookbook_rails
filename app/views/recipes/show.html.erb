@@ -1,8 +1,8 @@
 <h1><%= @recipe.name %></h1>
-<h2>By <%= @recipe.user.name %></h2>
+<h2>By <%= @recipe.user.username %></h2>
 
-<div>Ingredients: <%= @recipe.ingredient %></div>
-<div>Instructions: <%= @recipe.instruction %></div>
+<div>Ingredients: <%= @recipe.ingredients %></div>
+<div>Instructions: <%= @recipe.instructions %></div>
 <div>Category: <%= @recipe.category.name %></div>
 
 <% if !@recipe.comments.empty? %>
