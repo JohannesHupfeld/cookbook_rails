@@ -34,6 +34,22 @@ class RecipesController < ApplicationController
     redirect_to recipes_path if !@recipe
   end
 
+  def edit
+    @recipe = Recipe.find_by_id(params[:id])
+    redirect_to recipes_path if !@recipe || !authorized_to_edit?
+    @recipe.build_category if !@recipe.category
+  end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    redirect_to recipes_path if !@recipe || !authorized_to_edit?
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
+  end
+
   
 
 
