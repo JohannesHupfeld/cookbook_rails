@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   #signup route
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+
+  #login route
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   
   resources :categories
   resources :comments
