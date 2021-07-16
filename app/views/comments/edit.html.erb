@@ -3,9 +3,10 @@
 <%= render partial: "layouts/errors", locals: {object: @comment} %>
 
 <%= form_for(@comment) do |f|%>
-  <%= f.label :post %>
+  <br><%= f.label :post %></br>
   <%= f.collection_select :recipe_id, Recipe.all, :id, :name %>
-  <%= f.label :content %>
+<br>  </br>
+  <br><%= f.label :content %></br>
   <%= f.text_area :content %>
-  <%= f.submit %>
+  <br><%= f.submit %></br>
 <% end %>
