@@ -1,0 +1,12 @@
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <%= link_to category.name, category_path(category) %>
+      <ol>
+        <% category.recipes.each do  |recipe| %>
+          <li><%= link_to recipe.name, recipe_path(recipe)  %></li>
+        <% end  %>
+      </ol>
+    </li>
+  <% end %>
+</ul>

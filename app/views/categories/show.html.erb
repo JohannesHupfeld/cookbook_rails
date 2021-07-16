@@ -1,0 +1,7 @@
+<h1><%= @category.name %> - <%= pluralize(@category.recipes.count, "recipes") %></h1>
+
+<ol>
+    <% @category.recipes.each do  |recipe| %>
+      <li><%= link_to recipe.name, recipe_path(recipe)  %></li>
+    <% end  %>
+</ol>
