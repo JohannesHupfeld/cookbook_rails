@@ -15,11 +15,12 @@ class RecipesController < ApplicationController
       @recipes = @user.recipes
     else
       #error
-      @recipes = Recipe.includes(:category, :user)
+      @recipes = Recipe.alpha.includes(:category, :user)
     end
     @recipes = Recipe.search(params[:q].downcase) if params[:q] && !params[:q].empty?
   end
 
+  
 
 
   private
