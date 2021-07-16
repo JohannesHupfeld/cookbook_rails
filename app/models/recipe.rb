@@ -1,2 +1,12 @@
 class Recipe < ApplicationRecord
+  belongs_to :user # Macro gives us two methods, writer & reader
+  belongs_to :category
+  has_many :comments
+  has_many :users, through: :comments # Gives us the writer method for the plural 
+  validates :name, :instruction, :ingredient, presence: true
+ 
+  #accepts_nested_attributes_for :categories --this macro doesnt work when has_many
+  def category_attributes=(attr) # Necessary to define yourself when we have a has_many
+    self.category = Category.find_or_create_by(attr) if !attr[:name].blank?
+  end
 end
