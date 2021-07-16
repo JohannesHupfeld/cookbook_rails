@@ -1,0 +1,11 @@
+<% if @recipe %>
+  <h1>Comments for <%= @recipe.name%></h1>
+<% else %>
+  <h1>All Comments</h1>
+<% end %>
+
+<ul>
+<% @comments.each do |c|%>
+  <li><%= c.user.name%> says "<%= c.content%>" about this recipe: <strong><%= link_to c.recipe.name, recipe_path(c.recipe_id) %></strong></li>
+<% end %>
+</ul>
