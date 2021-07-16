@@ -12,7 +12,13 @@ class UsersController < ApplicationController
       render :new
     end
   end
-    
+
+  def show
+    redirect_if_not_logged_in
+    @user = User.find_by_id(params[:id]) #if it doesnt find anything find_by_id will throw nil whereas just find will throw error
+    redirect_to '/' if !@user
+  end
+
   private
 
   def user_params
