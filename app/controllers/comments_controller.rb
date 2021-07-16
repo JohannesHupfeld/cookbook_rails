@@ -1,4 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+  before_action :set_comment, only: [:show, :edit, :update]
+  before_action :redirect_if_not_comment_author, only: [:edit, :update]
+
+  def index
+    if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and then setting a value and checking if @recipe is nill or something 
+      @comments = @recipe.comments
+    else
+      @error = "Does not exist" if params[:recipe_id]
+      @comments = Comment.all 
+    end
+  end
   
   private
 
