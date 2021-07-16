@@ -8,12 +8,13 @@
 
 <%= form_for([@comment.recipe, @comment]) do |f|%>
 <% if !@comment.recipe %>
-  <%= f.label :recipe %>
+  <br><%= f.label :recipe %></br>
   <%= f.collection_select :recipe_id, Recipe.all, :id, :name %>
 <% else %>
     <%= f.hidden_field :recipe_id %>
 <% end %>
-  <%= f.label :content %>
+<br></br>
+  <br><%= f.label :content %></br>
   <%= f.text_area :content %>
-  <%= f.submit %>
+  <br><%= f.submit %></br>
 <% end %>
