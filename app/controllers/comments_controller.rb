@@ -30,6 +30,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show 
+  end
+
+  def edit
+  end
+
   private
 
   def comment_params
