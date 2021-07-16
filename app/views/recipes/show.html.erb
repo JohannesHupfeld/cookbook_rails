@@ -1,9 +1,9 @@
 <h1><%= @recipe.name %></h1>
 <h2>By <%= @recipe.user.username %></h2>
 
-<div>Ingredients: <%= @recipe.ingredients %></div>
-<div>Instructions: <%= @recipe.instructions %></div>
-<div>Category: <%= @recipe.category.name %></div>
+<div><h4>Ingredients:</h4> <%= @recipe.ingredients %></div>
+<div><h4>Instructions:</h4> <%= @recipe.instructions %></div>
+<div><h4>Category:</h4> <%= @recipe.category.name %></div>
 
 <% if !@recipe.comments.empty? %>
   <h4> Most Recent Comments: </h4>
