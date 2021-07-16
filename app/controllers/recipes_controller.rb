@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params) #user_id and recipe are connected -- post belongs to user
     if @recipe.save
-      redirect_to recipe_path
+      redirect_to recipes_path
     else
       render :new
     end
@@ -54,7 +54,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     if current_user
       @recipe.destroy
-      recipe_to recipe_path
+      redirect_to recipe_path
     else
       render :show
     end
