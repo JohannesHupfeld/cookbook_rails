@@ -119,17 +119,17 @@
     </div>
     <div id="navigation">
         <% if logged_in? %>
-        <%= link_to "Home", user_path(current_user)%> &#127860;
+        <%= link_to "Home", user_path(current_user)%> 🏡
         <br></br>
-        <%= link_to "My Recipes", user_recipes_path(current_user) %> &#127860;
+        <%= link_to "My Recipes", user_recipes_path(current_user) %> 😎 &#127860; 
         <br></br>
-        <%= link_to "Create Recipe", new_recipe_path %> &#127860;
+        <%= link_to "Create Recipe", new_recipe_path %> 🛠 🍳
         <br></br>
-        <%= link_to "All Recipes", recipes_path %> &#127860;
+        <%= link_to "All Recipes", recipes_path %> 🍽 🗂
         <br></br>
-        <%= link_to "All Categories", categories_path %> &#127860;
+        <%= link_to "All Categories", categories_path %> 🌮 🍕 🥟 🍣 🍰
         <br></br>
-        <%= link_to "Add a Comment", new_comment_path %> &#127860;
+        <%= link_to "Add a Comment", new_comment_path %> 📜 🖍
         <br></br>
         <%= button_to "Logout", logout_path, method: :delete %>
         <br></br>
