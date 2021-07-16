@@ -108,6 +108,12 @@
     </div>
     <div id="wrapper">
         <div id="content">
+        <% if flash[:message] %>
+            <h3 style="color:green;"><%= flash[:message] %></h3>
+        <% end %>
+        <% if flash[:errors] %>
+            <h3 style="color:red;"><%= flash[:errors] %></h3>
+        <% end %>
              <%= yield %>
         </div>
     </div>
@@ -135,12 +141,6 @@
         <%= link_to "Login with Google", '/auth/google_oauth2' %> &#127860;
         <br></br>
       <% end %>
-    </div>
-     <div>   
-      <% if flash[:message] %>
-        <%= flash[:message] %>
-      <% end %>
-      <%= @error  %>
     </div>
     <div id="footer"><p>Rails CookBook 	&trade;</p>
     </div>
