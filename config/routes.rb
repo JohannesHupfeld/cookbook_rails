@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
-   #signup route
-   get '/signup' => 'users#new'
-   post '/signup' => 'users#create'
+  root "sessions#home"
+
+  #signup route
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
   
   resources :categories
   resources :comments
