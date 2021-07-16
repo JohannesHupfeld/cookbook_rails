@@ -1,0 +1,19 @@
+<% if @comment.recipe %>
+<h1>New Comment for <%= @comment.recipe.name %>!</h1>
+<% else %>
+<h1>New Comment!</h1>
+<% end %>
+
+<%= render partial: "layouts/errors", locals: {object: @comment} %>
+
+<%= form_for([@comment.recipe, @comment]) do |f|%>
+<% if !@comment.recipe %>
+  <%= f.label :recipe %>
+  <%= f.collection_select :recipe_id, Recipe.all, :id, :name %>
+<% else %>
+    <%= f.hidden_field :recipe_id %>
+<% end %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
