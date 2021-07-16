@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params) #user_id and recipe are connected -- post belongs to user
     if @recipe.save
+      flash[:message] = "Recipe successfully created"
       redirect_to recipes_path
     else
       render :new
@@ -44,6 +45,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     redirect_to recipes_path if !@recipe || !authorized_to_edit?
     if @recipe.update(recipe_params)
+      flash[:message] = "Recipe successfully updated"
       redirect_to recipe_path(@recipe)
     else
       render :edit
@@ -54,6 +56,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     if current_user
       @recipe.destroy
+      flash[:message] = "Recipe successfully deleted"
       redirect_to recipe_path
     else
       render :show
