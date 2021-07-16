@@ -20,6 +20,20 @@ class RecipesController < ApplicationController
     @recipes = Recipe.search(params[:q].downcase) if params[:q] && !params[:q].empty?
   end
 
+  def create
+    @recipe = current_user.recipes.build(recipe_params) #user_id and recipe are connected -- post belongs to user
+    if @recipe.save
+      redirect_to recipe_path
+    else
+      render :new
+    end
+  end
+
+  def show
+    @recipe = Recipe.find_by_id(params[:id])
+    redirect_to recipes_path if !@recipe
+  end
+
   
 
 
