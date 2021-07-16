@@ -1,0 +1,30 @@
+
+<%# render the errors partial and send it the @recipe as the object %>
+<%= render partial: "layouts/errors", locals: {object: @recipe} %>
+
+<%= form_for(@recipe) do |f| %>
+
+  <br><%= f.label "Choose a Category" %></br>
+  <%= f.fields_for :category do |c|%>
+    <%= c.text_field :name%>
+  <% end %>
+
+  <br>  </br>
+
+  <br><%= f.label :name %></br>
+  <%= f.text_area :name %>
+
+  <br>  </br>
+
+  <br><%= f.label :ingredients %></br>
+  <%= f.text_area :ingredient %>
+
+  <br>  </br>
+
+  <br><%= f.label :instructions %></br>
+  <%= f.text_area :instruction %> 
+  
+  <br>  </br>
+
+  <%= f.submit %>
+<% end%>
