@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
     else
       @recipe = Recipe.new
     end
+    @recipe.build_category
   end
 
   def index 
