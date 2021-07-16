@@ -50,8 +50,15 @@ class RecipesController < ApplicationController
     end
   end
 
-  
-
+  def destroy
+    @recipe = Recipe.find_by(id: params[:id])
+    if current_user
+      @recipe.destroy
+      recipe_to recipe_path
+    else
+      render :show
+    end
+  end
 
   private
 
