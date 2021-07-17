@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
       @recipes = @user.recipes
     else
       @error = "This user doesn't exist" if params[:user_id]
-      @recipes = Recipe.alpha.includes(:category, :user)
+      @recipes = Recipe.alpha
     end
     @recipes = Recipe.search(params[:q].downcase) if params[:q] && !params[:q].empty?
   end
