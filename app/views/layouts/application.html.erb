@@ -95,6 +95,12 @@
             margin-left: -100%;
         }
 
+         div#extra {
+            float: left;
+            width: 25%;
+            margin-left: -25%;
+        }
+
         div#footer {
             clear: left;
             width: 100%;
@@ -104,7 +110,8 @@
 <body>
 <div id="container">
     <div id="header">
-        <h1>Rails Cookbook </h1> 
+        <h1>Rails Cookbook</h1> 
+
     </div>
     <div id="wrapper">
         <div id="content">
@@ -141,6 +148,9 @@
         <%= link_to "Login with Google", '/auth/google_oauth2' %> &#127860;
         <br></br>
       <% end %>
+    </div>
+    <div id="extra">
+              <%= image_tag("logos/logo1.png", width: '275px') %>
     </div>
     <div id="footer"><p>Rails CookBook 	&trade;</p>
     </div>
