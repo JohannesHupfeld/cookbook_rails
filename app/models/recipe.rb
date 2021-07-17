@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   scope :alpha, -> { order(:name) }
 
   def self.search(params)
-    left_joins(:comments).where("LOWER(recipes.name) LIKE :term OR LOWER(recipes.ingredients) LIKE :term", term: "%#{params}%")
+    left_joins(:category).where("LOWER(recipes.name) LIKE :term OR LOWER(recipes.ingredients) LIKE :term", term: "%#{params}%")
     #select any recipe where the name or ingredients closely match search 
   end
 
