@@ -4,11 +4,20 @@ class CommentsController < ApplicationController
   before_action :redirect_if_not_comment_author, only: [:edit, :update]
 
   def new
-    if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and finds the recipe
+    if find_recipe_nested
       @comment = @recipe.comments.build
     else  
       @error = "Does not exist" if params[:recipe_id]
       @comment = Comment.new
+    end
+  end
+
+  def index
+    if find_recipe_nested
+      @comments = @recipe.comments
+    else
+      @error = "Does not exist" if params[:recipe_id]
+      @comments = Comment.all 
     end
   end
 
@@ -22,19 +31,9 @@ class CommentsController < ApplicationController
     end
   end
   
-  def index
-    if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and then setting a value and checking if @recipe is nill or something 
-      @comments = @recipe.comments
-    else
-      @error = "Does not exist" if params[:recipe_id]
-      @comments = Comment.all 
-    end
-  end
-  
   def show 
   end
   
-
   def edit
   end
 
@@ -63,6 +62,10 @@ class CommentsController < ApplicationController
 
   def redirect_if_not_comment_author
     redirect_to comments_path if @comment.user != current_user
+  end
+
+  def find_recipe_nested #if nested and finds the recipe
+    params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and then setting a value and checking if @recipe is nill or something 
   end
 
 end
