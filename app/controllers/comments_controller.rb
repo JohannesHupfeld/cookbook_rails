@@ -11,7 +11,10 @@ class CommentsController < ApplicationController
       @comments = Comment.all 
     end
   end
-
+  
+  def show 
+  end
+  
   def new
     if params[:recipe_id] && @recipe = Recipe.find_by_id(params[:recipe_id]) #if nested and finds the recipe
       @comment = @recipe.comments.build
@@ -29,9 +32,6 @@ class CommentsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show 
   end
 
   def edit
