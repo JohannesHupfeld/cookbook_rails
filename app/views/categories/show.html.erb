@@ -1,4 +1,10 @@
-<h1><%= @category.name %> - <%= pluralize(@category.recipes.count, "recipes") %></h1>
+<h1><%= @category.name %> -
+<% if @category.recipes.count > 1 %>
+  <%= pluralize(@category.recipes.count, "recipes") %>
+<% else %>
+  <%= @category.recipes.count %> recipe
+<% end %></h1>
+
 
 <ol>
     <% @category.recipes.each do |recipe| %>
