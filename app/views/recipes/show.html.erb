@@ -1,5 +1,5 @@
 <h1><%= @recipe.name %></h1>
-<h2>By <%= @recipe.user.username %></h2>
+<h2>By <%= @recipe.user.username%></h2>
 
 <div><h4>Ingredients:</h4> <%= @recipe.ingredients %></div>
 <div><h4>Instructions:</h4> <%= @recipe.instructions %></div>
@@ -11,8 +11,8 @@
     <li><strong><%= c.user.username %></strong> commented "<%= link_to c.content, recipe_comment_path(@recipe, c) %>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %></li>
 <% end %>
   <p><%= link_to "All Comments", recipe_comments_path(@recipe) %></p>
-  <p><%= link_to "Add New Comment", new_recipe_comment_path(@recipe) %></p>
 <% end %>
+  <p><%= link_to "Add New Comment", new_recipe_comment_path(@recipe) %></p>
 <% if @recipe.user == current_user %>
   <p><%= link_to "Edit Recipe", edit_recipe_path(@recipe) %></p>
   <p><%= button_to 'Delete Recipe', recipe_path, :method => :delete %></p>
