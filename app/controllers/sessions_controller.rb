@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       user.username = auth["info"]["first_name"]
       user.password = SecureRandom.hex(10) #generates random password -- does not use their actual google password
     end
-    if @user #.save
+    if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
