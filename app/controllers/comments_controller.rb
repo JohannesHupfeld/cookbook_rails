@@ -46,6 +46,17 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    if current_user
+      @comment.destroy
+      flash[:message] = "Comment successfully deleted"
+      redirect_to recipe_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def comment_params
