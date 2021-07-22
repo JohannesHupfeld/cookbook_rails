@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :comments
   
   resources :users do
-    resources :recipes, only: [:new, :create, :index]
+    resources :recipes, only: [:new, :create, :index] #remove new and create # use slug in future to alphabetize id 
   end
 
   resources :categories, only: [:index, :show]

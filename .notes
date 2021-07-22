@@ -1,2 +1,6 @@
 - when a user is deleted, it deletes all recipes belonging to that user and all comments belonging to that recipe
 - when a recipe is deleted, it deletes all comments belonging to that recipe
+- use .methods on any object in ruby to see all methods for an object 
+- for scope alpha to show in alphabetical regardless of capitalization or to capitalize recipe name
+- &&  --- true and true
+- ||= --- or equals 
