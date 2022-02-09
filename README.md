@@ -2,6 +2,9 @@
 
 For my Ruby on Rails project I decided to take the same concept as my Sinatra project, the Cookbook app. This time around I implemented a few new features on top of the full CRUD functionality of the original project. In this Rails version of my Cookbook app a user adds a category to recipe they create. This allows users to simply go to all categories and choose a recipe based from a category. Users are given the ability to comment on any recipe they would like. On the recipes show page you will see up to 6 comments (Most Recent Comments) but you can always click on “All Comments” to view them all for that recipe. Another feature is being able to search for recipes using a search bar. This allows users to search for recipes with key words found in the recipe name or ingredients. Users are also able to login using there google account.
 
+## Demo
+[Demo](https://www.youtube.com/watch?v=Kpj_Y1xT3ps&t=2s)
+
 ## Instalation
 
 Clone the repo and install dependencies
