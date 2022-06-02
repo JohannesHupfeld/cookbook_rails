@@ -5,9 +5,10 @@
   <h1> Welcome to the Rails Cookbook App! </h1>
 <% end %>
 
+  <%#live coding project review%>
+
 <% if current_user %>
 <% @user.recipes.order(created_at: :desc).limit(5).each do |recipe|%>
     <li><%= recipe.name  %></li>
   <% end %>
 <% end %>
-  <%#live coding project review%>
